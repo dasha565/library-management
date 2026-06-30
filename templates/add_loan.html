@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Выдать книгу - Библиотека{% endblock %}
+
+{% block content %}
+<h1>Выдать книгу читателю</h1>
+
+<form method="POST" class="form">
+    <div class="form-group">
+        <label for="book_id">Книга</label>
+        <select id="book_id" name="book_id" required>
+            {% for book in books %}
+            <option value="{{ book.id }}">{{ book.title }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="reader_id">Читатель</label>
+        <select id="reader_id" name="reader_id" required>
+            {% for reader in readers %}
+            <option value="{{ reader.id }}">{{ reader.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Выдать книгу</button>
+</form>
+{% endblock %}

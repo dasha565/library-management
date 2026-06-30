@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Выдачи - Библиотека{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Выдачи книг</h1>
+    <a href="{{ url_for('main.add_loan') }}" class="btn btn-primary">Новая выдача</a>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Книга</th>
+            <th>Читатель</th>
+            <th>Дата выдачи</th>
+            <th>Дата возврата</th>
+            <th>Статус</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for loan in loans %}
+        <tr>
+            <td>{{ loan.id }}</td>
+            <td>{{ loan.book.title }}</td>
+            <td>{{ loan.reader.name }}</td>
+            <td>{{ loan.loan_date.strftime('%d.%m.%Y') }}</td>
+            <td>{{ loan.return_date.strftime('%d.%m.%Y') if loan.return_date else '-' }}</td>
+            <td>
+                {% if loan.is_returned %}
+                <span class="badge badge-success">Возвращена</span>
+                {% else %}
+                <span class="badge badge-warning">На руках</span>
+                {% endif %}
+            </td>
+            <td>
+                {% if not loan.is_returned %}
+                <form method="POST" action="{{ url_for('main.return_loan', loan_id=loan.id) }}" style="display:inline;">
+                    <button type="submit" class="btn btn-small">Вернуть</button>
+                </form>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

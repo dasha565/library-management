@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Добавить читателя - Библиотека{% endblock %}
+
+{% block content %}
+<h1>Добавить нового читателя</h1>
+
+<form method="POST" class="form">
+    <div class="form-group">
+        <label for="name">Имя</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="phone">Телефон</label>
+        <input type="text" id="phone" name="phone" required>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Добавить читателя</button>
+</form>
+{% endblock %}

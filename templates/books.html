@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Книги - Библиотека{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Книги</h1>
+    <a href="{{ url_for('main.add_book') }}" class="btn btn-primary">Добавить книгу</a>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Автор</th>
+            <th>Категория</th>
+            <th>Год</th>
+            <th>Копий</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.id }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author.name }}</td>
+            <td>{{ book.category.name }}</td>
+            <td>{{ book.year }}</td>
+            <td>{{ book.copies }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
