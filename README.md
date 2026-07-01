@@ -1,7 +1,6 @@
 # 📚 Library Management System
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/62803b90559a68a5c378/maintainability)](https://codeclimate.com/github/dasha565/library-management)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/62803b90559a68a5c378/test_coverage)](https://codeclimate.com/github/dasha565/library-management)
 
 ## 📝 Описание проекта
 Система управления библиотекой — это веб-приложение, предназначенное для автоматизации учета книжного фонда и контроля взаимодействия с читателями. Проект позволяет управлять каталогом книг, регистрировать новых пользователей, а также отслеживать выдачу и возврат литературы в режиме реального времени. Система реализована как Fullstack-приложение с фокусом на простоту использования и надежность хранения данных.
